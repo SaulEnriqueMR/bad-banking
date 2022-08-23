@@ -15,16 +15,16 @@ function App() {
   return (
     <HashRouter>
       <NavBar/>
-      <UserContext.Provider value={{users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
+      <UserContext.Provider value={{users:[{name:'abel', email:'abel@mit.edu', password:'secret', balance:100}]}}>
         <div className="container" style={{padding: "20px"}}>
           <Routes>
-            <Route path="/" exact component={Home} />
-            <Route path="/CreateAccount/" component={CreateAccount} />
-            <Route path="/Login/" component={Login} />
-            <Route path="/Deposit/" component={Deposit} />
-            <Route path="/Withdraw/" component={Withdraw} />
-            <Route path="/Balance/" component={Balance} />
-            <Route path="/AllData/" component={AllData} />
+            <Route path="/" element={<Home />} />
+            <Route path="/CreateAccount/" element={<CreateAccount />} />
+            <Route path="/Login/" element={<Login />} />
+            <Route path="/Deposit/" element={<Deposit />} />
+            <Route path="/Withdraw/" element={<Withdraw />} />
+            <Route path="/Balance/" element={<Balance />} />
+            <Route path="/AllData/" element={<AllData />} />
           </Routes>
         </div>
       </UserContext.Provider>

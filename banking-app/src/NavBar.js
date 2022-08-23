@@ -1,3 +1,5 @@
+import { Outlet, Link } from "react-router-dom";
+
 function NavBar() {
 	return(
 		<>
@@ -9,26 +11,27 @@ function NavBar() {
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<a className="nav-link" href="/#/CreateAccount/">Create Account</a>
+							<Link className="nav-link" to="/CreateAccount/">Create Account</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="/#/Login/">Login</a>
+							<Link className="nav-link" to="/Login/">Login</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="/#/Deposit/">Deposit</a>
+							<Link className="nav-link" to="/Deposit/">Deposit</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="/#/Withdraw/">Withdraw</a>
+							<Link className="nav-link" to="/Withdraw/">Withdraw</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="/#/Balance/">Balance</a>
+							<Link className="nav-link" to="/Balance/">Balance</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="/#/AllData/">AllData</a>
+							<Link className="nav-link" to="/AllData/">AllData</Link>
 						</li>
 					</ul>
 				</div>
 			</nav>
+			<Outlet />
 		</>
 	);
 }
