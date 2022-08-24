@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import UserContext from "../Context";
+import UserContext from "../state/Context";
 
 function AllData(){
 	const ctx = useContext(UserContext);

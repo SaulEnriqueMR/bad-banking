@@ -1,6 +1,6 @@
 import {useContext, useState} from "react";
 import Card from "../Card";
-import UserContext from "../Context";
+import UserContext from "../state/Context";
 
 function CreateAccount(){
 	const [show, setShow] = useState(true);
@@ -19,7 +19,7 @@ function CreateAccount(){
 		return true;
 	}
 	
-	function handleCreate(){
+	function handleCreate() {
 		console.log(name,email,password);
 		if (!validate(name, 'name')) return;
 		if (!validate(email, 'email')) return;
@@ -28,7 +28,7 @@ function CreateAccount(){
 		setShow(false);
 	}
 	
-	function clearForm(){
+	function clearForm() {
 		setName('');
 		setEmail('');
 		setPassword('');

@@ -2,7 +2,7 @@ import './App.css';
 import {HashRouter, Routes, Route} from "react-router-dom";
 import NavBar from "./NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UserContext from "./Context";
+import UserContext from "./state/Context";
 import Home from "./pages/Home";
 import CreateAccount from "./pages/CreateAccount";
 import Login from "./pages/Login";
@@ -14,8 +14,13 @@ import AllData from "./pages/AllData";
 function App() {
   return (
     <HashRouter>
+      <UserContext.Provider value={{
+        users: [
+          {name:'abel', email:'abel@mit.edu', password:'secret', balance:100}
+        ],
+        account: {}
+      }}>
       <NavBar/>
-      <UserContext.Provider value={{users:[{name:'abel', email:'abel@mit.edu', password:'secret', balance:100}]}}>
         <div className="container" style={{padding: "20px"}}>
           <Routes>
             <Route path="/" element={<Home />} />
