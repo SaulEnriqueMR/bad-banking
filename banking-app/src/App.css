@@ -62,7 +62,7 @@ body,
     stroke-linecap: butt;
     stroke-linejoin: miter;
     stroke-miterlimit: 10;
-    fill: #fff;
+    fill: #000;
     fill-rule: nonzero;
     opacity: 1;
 }

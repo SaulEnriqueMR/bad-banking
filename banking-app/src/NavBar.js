@@ -10,7 +10,7 @@ function NavBar() {
 		activeLinks.forEach(activeLink => {
 			activeLink.classList.remove('active');
 		});
-		e.target.classList.add('active');
+		e.target.offsetParent.classList.add('active');
 	}
 	
 	const renderTooltip = (props) => (
@@ -35,7 +35,7 @@ function NavBar() {
 											placement="bottom"
 											overlay={renderTooltip('This is where you can create an account')}
 											delay={{ show: 10, hide: 10 }}>
-										<>Create Account</>
+										<span>Create Account</span>
 									</OverlayTrigger>
 								</Link>
 							</li>
@@ -45,7 +45,7 @@ function NavBar() {
 											placement="bottom"
 											overlay={renderTooltip('This is where you can login and make transactions with your money')}
 											delay={{ show: 10, hide: 10 }}>
-											<>Login</>
+											<span>Login</span>
 									</OverlayTrigger>
 								</Link>
 							</li>
@@ -55,7 +55,7 @@ function NavBar() {
 											placement="bottom"
 											overlay={renderTooltip('This is where you can create an add money to your account')}
 											delay={{ show: 10, hide: 10 }}>
-											<>Deposit</>
+											<span>Deposit</span>
 									</OverlayTrigger>
 								</Link>
 							</li>
@@ -65,7 +65,7 @@ function NavBar() {
 											placement="bottom"
 											overlay={renderTooltip('This is where you can withdraw money from your account')}
 											delay={{ show: 10, hide: 10 }}>
-										<>Withdraw</>
+											<span>Withdraw</span>
 									</OverlayTrigger>
 								</Link>
 							</li>
@@ -75,7 +75,7 @@ function NavBar() {
 											placement="bottom"
 											overlay={renderTooltip('This is where you can see your account balance')}
 											delay={{ show: 10, hide: 10 }}>
-										<>Balance</>
+											<span>Balance</span>
 									</OverlayTrigger>
 								</Link>
 							</li>
@@ -85,7 +85,7 @@ function NavBar() {
 											placement="bottom"
 											overlay={renderTooltip('This is where you can see the state of the app')}
 											delay={{ show: 10, hide: 10 }}>
-										<>AllData</>
+											<span>AllData</span>
 									</OverlayTrigger>
 								</Link>
 							</li>

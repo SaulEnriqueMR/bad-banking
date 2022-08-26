@@ -10,9 +10,9 @@ function CreateAccount(){
 	const [password, setPassword] = useState('');
 	const ctx = useContext(UserContext);
 	
-	function validate(field, label){
+	function validate(field, label, message){
 		if (!field) {
-			setStatus(`Error: ${label}`);
+			setStatus(`Error: ${label} ${message}`);
 			setTimeout(() => setStatus(''),3000);
 			return false;
 		}
@@ -21,9 +21,9 @@ function CreateAccount(){
 	
 	function handleCreate() {
 		console.log(name,email,password);
-		if (!validate(name, 'name')) return;
-		if (!validate(email, 'email')) return;
-		if (!validate(password, 'password')) return;
+		if (!validate(name, 'name', 'was left blank')) return;
+		if (!validate(email, 'email', 'was left blank')) return;
+		if (!validate(password, 'password', 'was left blank')) return;
 		ctx.users.push({name, email, password, balance:100});
 		setShow(false);
 	}
