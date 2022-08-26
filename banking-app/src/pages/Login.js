@@ -9,9 +9,9 @@ function Login(){
 	const ctx = useContext(UserContext);
 	const [account, setAccount] = useState(ctx.account)
 	
-	function validate(field, label){
+	function validate(field, label, message){
 		if (!field) {
-			setStatus(`Error: ${label}`);
+			setStatus(`Error: ${label} ${message}`);
 			setTimeout(() => setStatus(''),3000);
 			return false;
 		}
@@ -20,8 +20,8 @@ function Login(){
 	
 	function handleLogin(){
 		console.log(email, password);
-		if (!validate(email, 'email')) return;
-		if (!validate(password, 'password')) return;
+		if (!validate(email, 'email', 'was left blank')) return;
+		if (!validate(password, 'password', 'was left blank')) return;
 		let result = ctx.users.filter(x => {return x.email === email && x.password === password});
 		console.log('logged user: ', result);
 		if (result.length === 0) {
@@ -32,6 +32,23 @@ function Login(){
 		ctx.account = result[0];
 		console.log('setted context: ', ctx.account)
 		setAccount(ctx.account);
+	}
+	
+	function blurEmail(event) {
+		validate(email, 'email', 'was left blank')
+	}
+	
+	function blurPassword(event) {
+		validate(password, 'password', 'was left blank');
+		console.log(password.length);
+		if (password.length < 8) {
+			setStatus(`Error: password must be 8 characters long or longer`);
+			setTimeout(() => setStatus(''),3000);
+		}
+	}
+	
+	function shouldDisableSubmit(event) {
+		return (email === '' || password === '');
 	}
 	
 	const getCard = () => {
@@ -56,10 +73,10 @@ function Login(){
 						body={
 							<>
 								Email address<br/>
-								<input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
+								<input type="input" onBlur={blurEmail} className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
 								Password<br/>
-								<input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
-								<button type="submit" className="btn btn-light" onClick={handleLogin}>Login</button>
+								<input type="password" onBlur={blurPassword} className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
+								<button type="submit" disabled={shouldDisableSubmit()} className="btn btn-light" onClick={handleLogin}>Login</button>
 							</>
 						}
 				/>
