@@ -92,6 +92,7 @@ function Login(){
 						</div>
 					</div>
 				</div>
+				<div className="credits">By Saúl Enrique Melchor Ramírez</div>
 			</>
 	)
 }

@@ -58,19 +58,13 @@ function Withdraw(){
 		}
 		return (
 				<>
-					<div className="home">
-						<div className="container home__layout">
-							<div className="home__content">
-								<Card
-										txtcolor="black"
-										header="BadBank Withdraw Module"
-										title="You are not logged in"
-										text="Please log in to withdraw from your account balance."
-										body=""
-								/>
-							</div>
-						</div>
-					</div>
+					<Card
+							txtcolor="black"
+							header="BadBank Withdraw Module"
+							title="You are not logged in"
+							text="Please log in to withdraw from your account balance."
+							body=""
+					/>
 				</>
 		)
 	}

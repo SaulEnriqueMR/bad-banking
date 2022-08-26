@@ -58,19 +58,13 @@ function Deposit() {
 		}
 		return (
 				<>
-					<div className="home">
-						<div className="container home__layout">
-							<div className="home__content">
-								<Card
-										txtcolor="black"
-										header="BadBank Balance Module"
-										title="You are not logged in"
-										text="Please log in to deposit to your account balance."
-										body=""
-								/>
-							</div>
-						</div>
-					</div>
+					<Card
+							txtcolor="black"
+							header="BadBank Balance Module"
+							title="You are not logged in"
+							text="Please log in to deposit to your account balance."
+							body=""
+					/>
 				</>
 		)
 	}
