@@ -65,7 +65,7 @@ function Deposit() {
 										txtcolor="black"
 										header="BadBank Balance Module"
 										title="You are not logged in"
-										text="Please log in to check your account balance."
+										text="Please log in to deposit to your account balance."
 										body=""
 								/>
 							</div>
