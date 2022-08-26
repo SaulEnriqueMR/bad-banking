@@ -7,6 +7,7 @@ function Login(){
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const ctx = useContext(UserContext);
+	const [account, setAccount] = useState(ctx.account)
 	
 	function validate(field, label){
 		if (!field) {
@@ -30,14 +31,29 @@ function Login(){
 		}
 		ctx.account = result[0];
 		console.log('setted context: ', ctx.account)
+		setAccount(ctx.account);
 	}
 	
-	return (
-			<Card
-					bgcolor="primary"
-					header="Login"
-					status={status}
-					body={
+	const getCard = () => {
+		if (Object.entries(account).length > 0) {
+			return (
+					<Card
+							bgcolor="primary"
+							header="Login"
+							body={
+								<>
+									<p>You are logged in! You can check your account balanced, widthdraw money or deposit money</p>
+								</>
+							}
+					/>
+			)
+		}
+		return (
+				<Card
+						bgcolor="primary"
+						header="Login"
+						status={status}
+						body={
 							<>
 								Email address<br/>
 								<input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
@@ -45,8 +61,21 @@ function Login(){
 								<input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
 								<button type="submit" className="btn btn-light" onClick={handleLogin}>Login</button>
 							</>
-				}
-			/>
+						}
+				/>
+		)
+	}
+	
+	return (
+			<>
+				<div className="home">
+					<div className="container home__layout">
+						<div className="home__content">
+							{getCard()}
+						</div>
+					</div>
+				</div>
+			</>
 	)
 }
 
