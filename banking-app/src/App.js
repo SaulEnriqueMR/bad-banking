@@ -14,14 +14,14 @@ import AllData from "./pages/AllData";
 function App() {
   return (
     <HashRouter>
+      <NavBar/>
       <UserContext.Provider value={{
         users: [
           {name:'abel', email:'abel@mit.edu', password:'secret', balance:100}
         ],
         account: {}
       }}>
-      <NavBar/>
-        <div className="container" style={{padding: "20px"}}>
+        <main className="main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/CreateAccount/" element={<CreateAccount />} />
@@ -31,7 +31,7 @@ function App() {
             <Route path="/Balance/" element={<Balance />} />
             <Route path="/AllData/" element={<AllData />} />
           </Routes>
-        </div>
+        </main>
       </UserContext.Provider>
     </HashRouter>
   );

@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+:root {
+    --primary-color: #945d49;
+    --secondary-color: #498094;
+    --tertiary-color: #93bbca;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body,
+#root {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    min-height: 600px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root {
+    /*overflow-y: auto;*/
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main {
+    height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.home {
+    background: var(--secondary-color);
+    height: 80%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.credits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.home__layout {
+    display: grid;
+    grid-template-rows: minmax(2rem, 1fr) 2fr minmax(2rem, 1fr);
+    height: 100%;
+}
+
+.home__content {
+    grid-row: 2;
+}
+
+.svg-bank {
+    stroke: none;
+    stroke-width: 0;
+    stroke-dasharray: none;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 10;
+    fill: none;
+    fill-rule: nonzero;
+    opacity: 1;
+}
+
+.bank-path {
+    stroke: none;
+    stroke-width: 1;
+    stroke-dasharray: none;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 10;
+    fill: #fff;
+    fill-rule: nonzero;
+    opacity: 1;
 }
