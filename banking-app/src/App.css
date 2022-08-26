@@ -66,3 +66,46 @@ body,
     fill-rule: nonzero;
     opacity: 1;
 }
+
+.navbar {
+    margin-bottom: 1rem;
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+}
+
+.navbar .nav-link {
+    color: var(--primary-color) !important;
+    padding: .5rem 0;
+    position: relative;
+}
+
+.navbar .nav-link::before {
+    background: var(--tertiary-color);
+    bottom: 4px;
+    content: ' ';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: width 200ms linear;
+    width: 100%;
+}
+
+.navbar .nav-link.active::before {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar .nav-link {
+        margin-right: .75rem;
+    }
+
+    .navbar .nav-link::before {
+        width: 0;
+    }
+
+    .navbar .nav-link:hover::before {
+        width: 100%;
+    }
+}

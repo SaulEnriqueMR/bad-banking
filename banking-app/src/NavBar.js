@@ -1,10 +1,23 @@
 import {Link, Outlet} from "react-router-dom";
-// import UserContext from "./state/Context";
-// import {useContext} from "react";
+import {OverlayTrigger, Tooltip} from "react-bootstrap";
+
 
 
 function NavBar() {
-	// const context = useContext(UserContext)
+	
+	const changeSection = (e) => {
+		const activeLinks = document.querySelectorAll('.nav-link.active');
+		activeLinks.forEach(activeLink => {
+			activeLink.classList.remove('active');
+		});
+		e.target.classList.add('active');
+	}
+	
+	const renderTooltip = (props) => (
+			<Tooltip id="button-tooltip" {...props}>
+				{props}
+			</Tooltip>
+	);
 	
 	return (
 		<>
@@ -17,22 +30,64 @@ function NavBar() {
 					<div className="collapse navbar-collapse" id="navbarNav">
 						<ul className="nav navbar-nav">
 							<li className="nav-item">
-								<Link className="nav-link" to="/CreateAccount/">Create Account</Link>
+								<Link onClick={changeSection} className="nav-link" to="/CreateAccount/">
+									<OverlayTrigger
+											placement="bottom"
+											overlay={renderTooltip('This is where you can create an account')}
+											delay={{ show: 10, hide: 10 }}>
+										<>Create Account</>
+									</OverlayTrigger>
+								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/Login/">Login</Link>
+								<Link onClick={changeSection} className="nav-link" to="/Login/">
+									<OverlayTrigger
+											placement="bottom"
+											overlay={renderTooltip('This is where you can login and make transactions with your money')}
+											delay={{ show: 10, hide: 10 }}>
+											<>Login</>
+									</OverlayTrigger>
+								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/Deposit/">Deposit</Link>
+								<Link onClick={changeSection} className="nav-link" to="/Deposit/">
+									<OverlayTrigger
+											placement="bottom"
+											overlay={renderTooltip('This is where you can create an add money to your account')}
+											delay={{ show: 10, hide: 10 }}>
+											<>Deposit</>
+									</OverlayTrigger>
+								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/Withdraw/">Withdraw</Link>
+								<Link onClick={changeSection} className="nav-link" to="/Withdraw/">
+									<OverlayTrigger
+											placement="bottom"
+											overlay={renderTooltip('This is where you can withdraw money from your account')}
+											delay={{ show: 10, hide: 10 }}>
+										<>Withdraw</>
+									</OverlayTrigger>
+								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/Balance/">Balance</Link>
+								<Link onClick={changeSection} className="nav-link" to="/Balance/">
+									<OverlayTrigger
+											placement="bottom"
+											overlay={renderTooltip('This is where you can see your account balance')}
+											delay={{ show: 10, hide: 10 }}>
+										<>Balance</>
+									</OverlayTrigger>
+								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/AllData/">AllData</Link>
+								<Link onClick={changeSection} className="nav-link" to="/AllData/">
+									<OverlayTrigger
+											placement="bottom"
+											overlay={renderTooltip('This is where you can see the state of the app')}
+											delay={{ show: 10, hide: 10 }}>
+										<>AllData</>
+									</OverlayTrigger>
+								</Link>
 							</li>
 						</ul>
 					</div>
