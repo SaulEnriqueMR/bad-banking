@@ -3,7 +3,7 @@ import UserContext from "../state/Context";
 import Card from "../Card";
 
 function AllData(){
-	const ctx = useContext(UserContext);
+	let ctx = useContext(UserContext);
 	return (
 			<>
 				<div className="home">

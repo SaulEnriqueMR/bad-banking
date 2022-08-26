@@ -3,12 +3,12 @@ import Card from "../Card";
 import UserContext from "../state/Context";
 
 function CreateAccount(){
-	const [show, setShow] = useState(true);
-	const [status, setStatus] = useState('');
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const ctx = useContext(UserContext);
+	let [show, setShow] = useState(true);
+	let [status, setStatus] = useState('');
+	let [name, setName] = useState('');
+	let [email, setEmail] = useState('');
+	let [password, setPassword] = useState('');
+	let ctx = useContext(UserContext);
 	
 	function validate(field, label, message){
 		if (!field) {

@@ -12,15 +12,17 @@ import Balance from "./pages/Balance";
 import AllData from "./pages/AllData";
 
 function App() {
+  let state = {
+    users: [
+      {name:'abel', email:'abel@mit.edu', password:'secret', balance:100}
+    ],
+    account: {}
+  }
+  
   return (
     <HashRouter>
-      <NavBar/>
-      <UserContext.Provider value={{
-        users: [
-          {name:'abel', email:'abel@mit.edu', password:'secret', balance:100}
-        ],
-        account: {}
-      }}>
+      <UserContext.Provider value={state}>
+        <NavBar/>
         <main className="main">
           <Routes>
             <Route path="/" element={<Home />} />

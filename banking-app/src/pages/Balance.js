@@ -3,7 +3,7 @@ import UserContext from "../state/Context";
 import Card from "../Card";
 
 function Balance() {
-	const {account} = useContext(UserContext)
+	let {account} = useContext(UserContext)
 	
 	const getCard = () => {
 		if (Object.entries(account).length > 0) {
